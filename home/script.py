@@ -11,7 +11,7 @@ def download_image(image_url,save_directory,image_name):
     image_path = os.path.join(save_directory,image_name)
     response = requests.get(image_url,stream=True)
     if response.status_code == 200:
-        with open(image_name,'wb') as file:
+        with open(image_path,'wb') as file:
             for chunk in response.iter_content(1024):
                 file.write(chunk)
     return image_path
